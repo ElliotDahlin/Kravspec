@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Kravspec
 {
-    internal class Kravspecloginresgister
+    internal class Krav
     {
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
 
-        public Kravspecloginresgister(string username, string password, string email)
+        public Krav(string username, string password, string email)
         {
             Username = username;
             Password = password;
