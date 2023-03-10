@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Collections;
 
 namespace Kravspec
 {
@@ -23,59 +25,67 @@ namespace Kravspec
             string dbHost = "";
             string connString = $"SERVER={server};DATABASE={databas};UID={dbUser};PASSWORD={dbPass};PORT={dbPort};HOST={dbHost};Allow User Variables=true";
 
-            MySqlConnection conn = new MySqlConnection(connString);
+            MySqlConnection con = new MySqlConnection(connString);
             try
             {
-                conn.Open();
+                con.Open();
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("MySql Connection!" + ex.Message, " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return conn;
+            return con;
         }
 
-        public static void Reg(Krav log)
+        public static void Regist(Krav krav)
         {
-            string connstring = "INSERT INTO register(Username, Password, Email) VALUES (@Username, @Password, @Email)";
-            MySqlConnection conn = GetConnection();
-            MySqlCommand cmd = new MySqlCommand(connstring, conn);
+            string connString = "INSERT INTO user(Username, Password, Email) VALUES (@Username, @Password, @Email)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(connString, con);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue("@Username",MySqlDbType.VarChar).Value = log.Username;
-            cmd.Parameters.AddWithValue("@Password", MySqlDbType.VarChar).Value = log.Password;
-            cmd.Parameters.AddWithValue("@Email", MySqlDbType.VarChar).Value = log.Email;
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.Add("@Username", MySqlDbType.VarChar).Value = krav.Username;
+            cmd.Parameters.Add("@Password", MySqlDbType.VarChar).Value = krav.Password;
+            cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = krav.Email;
 
             try
             {
                 cmd.ExecuteNonQuery();
-                
+                MessageBox.Show("Added Successfully ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
+                MessageBox.Show("Account not inserted" + ex.Message, " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            con.Close();
+        }
+
+        public static bool Login(Krav krav)
+        {
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE username = @Username AND password = @Password",con);
+            cmd.Parameters.AddWithValue("username", krav.Username);
+            cmd.Parameters.AddWithValue("password", krav.Password);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+            bool isloggedIn = false; 
+            if(reader.Read())
+            {
+                isloggedIn = true;
 
             }
+            else
+            {
+                isloggedIn = false;
+            }
 
-
+            return isloggedIn;
+           
         }
-
-
-
-        public static void Login(Krav reg)
-        {
-            
-        }
-
-        
-        
-
-
-         
-        
 
        
-        
 
+
+        
         
     }
 }

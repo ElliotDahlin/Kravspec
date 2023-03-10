@@ -143,6 +143,7 @@
             this.LgnBtn.TabIndex = 0;
             this.LgnBtn.Text = "Login";
             this.LgnBtn.UseVisualStyleBackColor = true;
+            this.LgnBtn.Click += new System.EventHandler(this.LgnBtn_Click);
             // 
             // Form1
             // 

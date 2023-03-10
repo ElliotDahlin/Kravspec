@@ -22,6 +22,12 @@ namespace Kravspec
 
         }
 
+        public Krav(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
 
 
 
