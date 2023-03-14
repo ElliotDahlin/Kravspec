@@ -49,6 +49,8 @@ namespace Kravspec
             KravspecDB kravspecDB = new KravspecDB();
             Krav krav = new Krav(txtUser.Text,txtPass.Text);
             bool isLoggedIn = KravspecDB.Login(krav);
+           
+            
 
             if (isLoggedIn)
             {
