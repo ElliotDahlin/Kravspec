@@ -20,9 +20,9 @@ namespace Kravspec
             string server = "Kravspec";
             string databas = "kravspec";
             string dbUser = "root";
-            string dbPass = "Dahlin12345!";
-            string dbPort = "3306";
-            string dbHost = "127.0.0.1";
+            string dbPass = "";
+            string dbPort = "";
+            string dbHost = "";
             string connString = $"SERVER={server};DATABASE={databas};UID={dbUser};PASSWORD={dbPass};PORT={dbPort};HOST={dbHost};Allow User Variables=true";
 
             MySqlConnection con = new MySqlConnection(connString);

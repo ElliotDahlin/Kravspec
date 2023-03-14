@@ -73,10 +73,13 @@ namespace Kravspec
                 return;
             }
 
-
-
+            this.Hide();
+            HuvudMeny huvudMeny = new HuvudMeny();
+            huvudMeny.Show();
 
 
         }
+
+
     }
 }

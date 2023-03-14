@@ -38,6 +38,8 @@
             this.Regbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +47,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.Label3);
             this.panel2.Controls.Add(this.label2);
@@ -62,7 +65,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(238, 286);
+            this.label4.Location = new System.Drawing.Point(264, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 16);
             this.label4.TabIndex = 3;
@@ -91,7 +94,7 @@
             // txtEmail
             // 
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtEmail.Location = new System.Drawing.Point(317, 283);
+            this.txtEmail.Location = new System.Drawing.Point(317, 279);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(181, 28);
@@ -120,7 +123,7 @@
             this.Regbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Regbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Regbtn.ForeColor = System.Drawing.Color.White;
-            this.Regbtn.Location = new System.Drawing.Point(346, 327);
+            this.Regbtn.Location = new System.Drawing.Point(347, 325);
             this.Regbtn.Name = "Regbtn";
             this.Regbtn.Size = new System.Drawing.Size(117, 47);
             this.Regbtn.TabIndex = 0;
@@ -130,7 +133,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -143,13 +147,36 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(293, 44);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 45);
+            this.label1.Size = new System.Drawing.Size(311, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bobcorn Time";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(68, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 25);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Watch - Rate - Share";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(335, 385);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 18);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Click here to Return";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // Register
             // 
@@ -181,5 +208,7 @@
         private System.Windows.Forms.Button Regbtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

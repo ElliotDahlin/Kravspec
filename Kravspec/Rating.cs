@@ -20,7 +20,7 @@ namespace Kravspec
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Resources.icons8 - kebab - 60;
+           // pictureBox1.Image = Resources."icons8 - kebab - 60";
         }
     }
 }

@@ -51,6 +51,9 @@
     <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PasswordStrengthIndicator.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PasswordStrengthIndicator.2.2.0\lib\PasswordStrengthIndicator.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -147,6 +150,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyXML\PasswordPolicy.xml" />
+    <Content Include="MyXML\PasswordPolicy.xslt" />
+    <Content Include="PasswordStrengthIndicator.Example\Default.aspx.txt" />
+    <Content Include="PasswordStrengthIndicator.Example\jQuery_Password_Strength_Indicator.htm" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.password-strength-2.0.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

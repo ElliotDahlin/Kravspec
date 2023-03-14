@@ -28,6 +28,13 @@ namespace Kravspec
         {
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Form1 form2 = new Form1();
+            form2.Show();
+            this.Close();
+        }
+
         public void Clear()
         {
             txtUser1.Text = string.Empty;
@@ -45,7 +52,8 @@ namespace Kravspec
             }
             if (txtPass1.Text.Trim().Length < 8)
             {
-                MessageBox.Show("Password is empty");
+
+                MessageBox.Show("Password must be 8 characters long");
                 return;
             }
             if (txtEmail.Text.Trim().Length < 1)
