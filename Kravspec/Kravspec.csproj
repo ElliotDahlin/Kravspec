@@ -139,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Rating.resx">
       <DependentUpon>Rating.cs</DependentUpon>
@@ -161,6 +162,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="icons8-kebab-60 %281%29.png" />
+    <None Include="icons8-kebab-60.png" />
     <Content Include="MyXML\PasswordPolicy.xml" />
     <Content Include="MyXML\PasswordPolicy.xslt" />
     <Content Include="PasswordStrengthIndicator.Example\Default.aspx.txt" />
