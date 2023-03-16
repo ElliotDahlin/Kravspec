@@ -13,6 +13,8 @@ namespace Kravspec
         public string Password { get; set; }
         public string Email { get; set; }
 
+        
+
         public Krav(string username, string password, string email)
         {
             Username = username;
@@ -27,6 +29,7 @@ namespace Kravspec
             Username = username;
             Password = password;
         }
+
 
 
 

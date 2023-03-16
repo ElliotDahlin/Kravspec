@@ -50,7 +50,10 @@ namespace Kravspec
             Krav krav = new Krav(txtUser.Text,txtPass.Text);
             bool isLoggedIn = KravspecDB.Login(krav);
            
-            
+            if(LgnBtn.Text == "Login")
+            {
+                KravspecDB.Login(krav);
+            }
 
             if (isLoggedIn)
             {
@@ -73,13 +76,13 @@ namespace Kravspec
                 return;
             }
 
+            
+
             this.Hide();
             HuvudMeny huvudMeny = new HuvudMeny();
             huvudMeny.Show();
 
 
         }
-
-
     }
 }

@@ -17,14 +17,25 @@ namespace Kravspec
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public static void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           if(e.ColumnIndex == 0)
+            {
+                
+            }
 
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMovie_Click(object sender, EventArgs e)
+        {
+            Addmovie addmovie = new Addmovie();
+            addmovie.Show();
+            this.Hide();
         }
     }
 }
