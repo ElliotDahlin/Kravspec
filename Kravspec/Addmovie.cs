@@ -37,6 +37,7 @@ namespace Kravspec
 
         }
 
+        ///private void 
         
 
         public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +46,19 @@ namespace Kravspec
             
 
         }
-        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            HuvudMeny huvudMeny = new HuvudMeny();
+            huvudMeny.Show();
+            this.Close();
+        }
+
+        private void ratingbtn_Click(object sender, EventArgs e)
+        {
+
+            Rating rating = new Rating();
+            rating.Show();
+        }
     }
 }

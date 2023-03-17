@@ -67,5 +67,10 @@ namespace Kravspec
             pictureBox5.Image = Resources.icons8_kebab_60__1_;
             lblRating.Text = "1";
         }
+
+        private void closebtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -18,103 +18,34 @@ namespace Kravspec
     internal class KravspecDB 
     {
 
-        internal class Database
+        public static MySqlConnection GetConnection()
         {
-            private MySqlConnection conn;
+            string server = "Kravspec";
+            string databas = "kravspec";
+            string dbUser = "root";
+            string dbPass = "Dahlin12345!";
+            string dbPort = "3306";
+            string dbHost = "127.0.0.1";
+            string connString = $"SERVER={server};DATABASE={databas};UID={dbUser};PASSWORD={dbPass};PORT={dbPort};HOST={dbHost};Allow User Variables=true";
 
-            private string server;
-
-            private string database;
-
-            private string user;
-
-            private string password;
-
-            private string port;
-
-            private string host;
-
-            public Database()
+            MySqlConnection con = new MySqlConnection(connString);
+            try
             {
-
-                server = "Kravspec";
-                database = "kravspec";
-                user = "root";
-                password = "Dahlin12345!";
-                port = "3306";
-                host = "127.0.0.1";
-
-
-
-                string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={password};PORT={port};HOST={host};Allow User Variables=true";
-
-                conn = new MySqlConnection(connString);
-
+                con.Open();
             }
-
-
-            public MySqlConnection GetConnection()
+            catch (MySqlException ex)
             {
-                return conn;
+                MessageBox.Show("MySql Connection!" + ex.Message, " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            public bool OpenConnection()
-            {
-                try
-                {
-                    conn.Open();
-                    return true;
-
-                }
-                catch (MySqlException e)
-                {
-                    switch (e.Number)
-                    {
-                        case 0:
-                            break;
-                        case 1045:
-                            break;
-                    }
-
-                    return false;
-                }
-
-
-            }
-
-            public bool CloseConnection()
-            {
-                try
-                {
-                    conn.Close();
-                    return true;
-
-                }
-                catch (MySqlException e)
-                {
-                    switch (e.Number)
-                    {
-                        case 0:
-                            break;
-                        case 1045:
-                            break;
-                    }
-
-                    return false;
-                }
-
-            }
-
-
+            return con;
         }
 
         public static void Regist(Krav krav)
         {
-            Database database = new Database();
+           
             string connString = "INSERT INTO user(Username, Password, Email) VALUES (@Username, @Password, @Email)";
-            database.OpenConnection();
-            MySqlConnection conn = database.GetConnection();
-            MySqlCommand cmd = new MySqlCommand(connString, conn);
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(connString, con);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.Parameters.Add("@Username", MySqlDbType.VarChar).Value = krav.Username;
             cmd.Parameters.Add("@Password", MySqlDbType.VarChar).Value = krav.Password;
@@ -129,22 +60,19 @@ namespace Kravspec
             {
                 MessageBox.Show("Account not inserted" + ex.Message, " Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            conn.Close();
+            con.Close();
         }
 
         public static bool Login(Krav krav)
         {
-            Database database = new Database();
-            string connString = "SELECT * FROM user WHERE username = @Username AND password = @Password";
-            database.OpenConnection();
-            MySqlConnection conn = database.GetConnection();
-            MySqlCommand cmd = new MySqlCommand(connString, conn);
-            cmd.Parameters.AddWithValue("username", krav.Username);
-            cmd.Parameters.AddWithValue("password", krav.Password);
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE username = @Username AND password = @Password",con);           
+            cmd.Parameters.AddWithValue("@Username", krav.Username);
+            cmd.Parameters.AddWithValue("@Password", krav.Password);           
             MySqlDataReader reader = cmd.ExecuteReader();
 
             bool isloggedIn = false;
-            if(reader.Read())
+            if (reader.Read())
             {
                 isloggedIn = true;
 
@@ -160,11 +88,9 @@ namespace Kravspec
 
         public static void SelectMovie(Movie movie, DataGridView datagrid)
         {
-            Database database = new Database();          
+            MySqlConnection con = GetConnection();
             string connString = "SELECT FROM movies WHERE ID = @ID, Title = @Title, Director = @Director, Moviereldate = @Moviereldate, Rating = @Rating";
-            database.OpenConnection();
-            MySqlConnection conn = database.GetConnection();
-            MySqlCommand cmd = new MySqlCommand(connString, conn);
+            MySqlCommand cmd = new MySqlCommand(connString, con);
             cmd.Parameters.AddWithValue("@ID", movie);
             cmd.Parameters.AddWithValue("@Title", movie);
             cmd.Parameters.AddWithValue("@Director", movie);
@@ -184,7 +110,7 @@ namespace Kravspec
             DataTable dt = new DataTable();
             adp.Fill(dt);
             datagrid.DataSource = dt;
-            conn.Close();
+            con.Close();
 
         }
 

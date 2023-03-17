@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kravspec", "Kravspec\Kravspec.csproj", "{3A2A252C-7980-4FEF-91DD-0505E8AA17F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forumtest", "..\..\..\source\repos\Forumtest\Forumtest\Forumtest.csproj", "{A73C9FF6-B16A-4553-823B-A740140ACE1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3A2A252C-7980-4FEF-91DD-0505E8AA17F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2A252C-7980-4FEF-91DD-0505E8AA17F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2A252C-7980-4FEF-91DD-0505E8AA17F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73C9FF6-B16A-4553-823B-A740140ACE1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73C9FF6-B16A-4553-823B-A740140ACE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73C9FF6-B16A-4553-823B-A740140ACE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73C9FF6-B16A-4553-823B-A740140ACE1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

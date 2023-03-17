@@ -37,5 +37,10 @@ namespace Kravspec
             addmovie.Show();
             this.Hide();
         }
+
+        private void forumbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

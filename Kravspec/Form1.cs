@@ -49,22 +49,7 @@ namespace Kravspec
             KravspecDB kravspecDB = new KravspecDB();
             Krav krav = new Krav(txtUser.Text,txtPass.Text);
             bool isLoggedIn = KravspecDB.Login(krav);
-           
-            if(LgnBtn.Text == "Login")
-            {
-                KravspecDB.Login(krav);
-            }
-
-            if (isLoggedIn)
-            {
-                MessageBox.Show("You are logged in");
-            }
-            else
-            {
-                MessageBox.Show("Please try again");
-            }
-
-
+                      
             if (txtUser.Text.Trim().Length < 1)
             {
                 MessageBox.Show("Username is empty");
@@ -76,7 +61,18 @@ namespace Kravspec
                 return;
             }
 
-            
+            if (isLoggedIn)
+            {
+                MessageBox.Show("You are logged in");
+            }
+
+            else
+            {
+                MessageBox.Show("Please try again");
+            }
+
+
+
 
             this.Hide();
             HuvudMeny huvudMeny = new HuvudMeny();
